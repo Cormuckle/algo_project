@@ -279,6 +279,13 @@ public class Project {
         return j;
     }
 
+
+    /**
+     *
+     * This function simply checks if a vertex in the graph has any edges pointing to it or away from it.
+     * if there are none then it is assumed that the vertex doesnt correspond with any of the stops
+     * within the input file
+     */
     public static boolean isAStop(EdgeWeightedDigraph digraph, int stop){
         if(stop > digraph.V()){
             return false;
@@ -296,6 +303,11 @@ public class Project {
         }
         return true;
     }
+
+    /**
+     * This method is used to determine if a stop already has an edge leading towards a specific spot.
+     * That way there is no doubling up of edges that are the same length
+     */
     public static boolean hasEdge(Iterator<DirectedEdge> iterator, int stop){
         while(iterator.hasNext()){
             DirectedEdge edge = iterator.next();
